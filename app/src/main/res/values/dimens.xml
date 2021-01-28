@@ -1,0 +1,76 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!--Margin-->
+    <dimen name="margin_all_2dp">2dp</dimen>
+    <dimen name="margin_all_4dp">4dp</dimen>
+    <dimen name="margin_all_6dp">6dp</dimen>
+    <dimen name="margin_all_8dp">8dp</dimen>
+    <dimen name="margin_all_16dp">16dp</dimen>
+    <dimen name="margin_all_20dp">20dp</dimen>
+    <dimen name="margin_all_24dp">24dp</dimen>
+    <dimen name="margin_all_32dp">32dp</dimen>
+    <dimen name="margin_bottom_recycler_view">100dp</dimen>
+
+    <!--Text-->
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_28sp">28sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_big">24sp</dimen>
+
+    <!--Buttons-->
+    <dimen name="size_height_extended_fab">48dp</dimen>
+    <dimen name="size_fab">56dp</dimen>
+
+    <!--Tab Layout-->
+    <dimen name="tab_layout_height">48dp</dimen>
+    <dimen name="tab_indicator_height">2dp</dimen>
+
+
+    <dimen name="subheader_height">48dp</dimen>
+
+    <dimen name="all_card_corner_radius">3dp</dimen>
+    <dimen name="all_space_recycler_view">3dp</dimen>
+    <dimen name="size_icon_on_toolbar">20dp</dimen>
+
+    <dimen name="size_width_icon_item_customer">12dp</dimen>
+    <dimen name="size_height_icon_item_customer">12dp</dimen>
+    <dimen name="all_width_button_150dp">150dp</dimen>
+    <dimen name="all_height_button_35dp">35dp</dimen>
+    <dimen name="margin_between_line_3dp">3dp</dimen>
+
+    <integer name="max_line_2">2</integer>
+    <integer name="max_line_1">1</integer>
+    <dimen name="size_height_edittext">42dp</dimen>
+    <dimen name="size_height_spinner">42dp</dimen>
+
+
+    <dimen name="column_customer_list">80dp</dimen>
+    <dimen name="icon_width_customer_list">14dp</dimen>
+    <dimen name="icon_height_customer_list">14dp</dimen>
+    <dimen name="column_promotion_list">60dp</dimen>
+    <dimen name="column_sale_drafts_list">80dp</dimen>
+    <dimen name="column_expense_list">120dp</dimen>
+    <dimen name="column_cheque">100dp</dimen>
+    <dimen name="size_check_box">20dp</dimen>
+    <dimen name="size_remove">18dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <dimen name="size_width_passcode">60dp</dimen>
+    <dimen name="size_height_passcode">60dp</dimen>
+
+    <dimen name="dialog_product_quantity_width">350dp</dimen>
+    <dimen name="dialog_promotion_product_foc_width">300dp</dimen>
+
+    <dimen name="column_customer_address">120dp</dimen>
+    <dimen name="column_customer_contact">150dp</dimen>
+</resources>

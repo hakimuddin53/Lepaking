@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.airbillscanner.viewmodel.BarcodeScanningViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:keepScreenOn="true">
+
+        <RelativeLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_all_16dp">
+
+            <ImageView
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/all_close_24dp"
+                app:tint="@color/white"
+                android:layout_alignParentStart="true"/>
+
+            <ImageView
+                android:id="@+id/btn_camera_toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_switch_camera_black_24dp"
+                android:onClick="@{viewModel::onCameraToggleClick}"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <com.example.airbillscanner.common.barcodescanning.CameraSourcePreview
+            android:id="@+id/firePreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_header">
+
+            <com.example.airbillscanner.common.barcodescanning.GraphicOverlay
+                android:id="@+id/fireFaceOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+        </com.example.airbillscanner.common.barcodescanning.CameraSourcePreview>
+
+        <LinearLayout
+            android:id="@+id/layout_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:weightSum="10">
+
+            <EditText
+                android:id="@+id/text_barcode"
+                style="@style/Text.H6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:padding="@dimen/margin_all_4dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:text="@={viewModel.barcode}"
+                app:cursorPosition="@{viewModel.barcode}"
+                android:hint="@string/hint_barcode"/>
+
+            <Button
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@color/majesticWhiteAccent"
+                android:text="@string/all_confirm"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:onClick="@{viewModel::onConfirmClick}"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

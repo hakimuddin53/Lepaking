@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="drawerItemIconColor" format="reference"/>
+    <attr name="drawerItemTextColor" format="reference"/>
+    <attr name="pressedItemColor" format="reference"/>
+    <attr name="checkedItemColor" format="reference"/>
+
+    <declare-styleable name="textViewRequiredView">
+        <attr name="text" format="string" />
+        <attr name="isNeeded" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomEditText">
+        <attr name="label" format="string" />
+        <attr name="isRequired" format="boolean" />
+        <!--<attr name="inputType" format="enum">
+            <enum name="disabled" value="0"/>
+            <enum name="text" value="1"/>
+            <enum name="number" value="2"/>
+            <enum name="decimal" value="8192"/>
+        </attr>-->
+        <attr name="iconMode" format="enum">
+            <enum name="custom" value="-1"/>
+            <enum name="none" value="0"/>
+            <enum name="passwordToggle" value="1"/>
+            <enum name="clearText" value="2"/>
+        </attr>
+        <attr name="iconDrawable" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="CustomSearchView">
+        <attr name="hint" format="string"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white100">#F0F0F0</color>
+
+    <color name="grey100">#F5F5F5</color>
+    <color name="grey200">#EEEEEE</color>
+    <color name="grey300">#E0E0E0</color>
+    <color name="grey400">#BDBDBD</color>
+    <color name="grey500">#9E9E9E</color>
+    <color name="grey700">#616161</color>
+
+    <color name="light_blue">#B7E9F7</color>
+    <color name="light_blue_100">#F5FCFF</color>
+    <color name="blue">#009BF7</color>
+
+    <color name="red">#d60000</color>
+    <color name="green">#23770F</color>
+    <color name="green500">#4CAF50</color>
+    <color name="orange">#E85900</color>
+    <color name="delete">#ed5050</color>
+    <color name="warning">#ed5050</color>
+
+    <!-- Majestic White Color Code -->
+    <color name="majesticWhitePrimary">#FFFFFF</color>
+    <color name="majesticWhiteAccent">#6D80FF</color>
+    <color name="majesticWhiteAccentDark">#5766CC</color>
+    <color name="majesticWhiteLight">#E6E9FF</color>
+    <color name="majesticWhiteDark">#FFFFFF</color>
+    <color name="majesticWhiteBackground">#1A6D80FF</color>
+
+    <color name="blue_grey_200">#B0BEC5</color>
+
+    <color name="colorCardBackground">#F0F0F8</color>
+</resources>
