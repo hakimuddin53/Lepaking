@@ -9,8 +9,13 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    AIzaSyARuyBFlTDspFnW2eIT1dn5oGocopZHOP0
     <string name="hint_barcode" translatable="false">Barcode</string>
     <string name="error_barcode_invalid" translatable="false">Please enter valid barcode</string>
-    <string name="all_confirm" translatable="false">Confirm</string>
+    <string name="all_confirm" translatable="false">Confirm</string>.
+
+    <string name="barcode" translatable="false">Barcode</string>
+    <string name="enter_barcode" translatable="false">Enter Barcode</string>
+
+
+
 </resources>

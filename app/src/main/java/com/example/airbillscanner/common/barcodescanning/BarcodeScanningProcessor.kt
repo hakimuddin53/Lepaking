@@ -14,6 +14,7 @@ class BarcodeScanningProcessor: VisionProcessorBase<List<FirebaseVisionBarcode>>
 
     private val detector: FirebaseVisionBarcodeDetector = FirebaseVision.getInstance().visionBarcodeDetector
 
+
     init {
         // Note that if you know which format of barcode your app is dealing with, detection will be
         // faster to specify the supported barcode formats one by one, e.g.

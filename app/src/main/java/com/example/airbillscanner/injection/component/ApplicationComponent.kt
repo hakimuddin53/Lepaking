@@ -5,6 +5,7 @@ import com.example.airbillscanner.AirbillScannerApplication
 import com.example.airbillscanner.injection.module.ApplicationModule
 import com.example.airbillscanner.injection.module.DatabaseModule
 import com.example.airbillscanner.injection.module.NetworkModule
+import com.example.airbillscanner.viewmodel.AirBillViewModel
 import com.example.airbillscanner.viewmodel.BarcodeScanningViewModel
 import com.resmal.smartsales.injection.module.*
 
@@ -20,10 +21,8 @@ import javax.inject.Singleton
     SystemModule::class])
 
 interface ApplicationComponent {
-    fun inject(airbillScannerApplication: AirbillScannerApplication)
     fun inject(barcodeScanningViewModel: BarcodeScanningViewModel)
-
-
+    fun inject(airBillViewModel: AirBillViewModel)
 }
 
 

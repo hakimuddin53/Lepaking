@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MajesticWhiteTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/majesticWhiteAccentDark</item>
+        <item name="colorPrimary">@color/majesticWhiteAccent</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/majesticWhiteAccent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorAccent">@color/majesticWhiteAccent</item>
+        <item name="android:windowBackground">@drawable/all_background_majestic_white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="floatingActionButtonStyle">@style/Widget.MajesticWhite.FloatingActionButton</item>
+        <item name="radioButtonStyle">@style/Widget.MajesticWhite.RadioButton</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
+        <item name="popupMenuStyle">@style/Widget.MajesticWhite.PopupMenu</item>
+
+        <!-- Custom Attributes -->
+        <item name="drawerItemIconColor">@color/grey700</item>
+        <item name="drawerItemTextColor">@color/black</item>
+        <item name="pressedItemColor">@color/majesticWhiteAccent</item>
+        <item name="checkedItemColor">@color/majesticWhiteAccent</item>
+    </style>
+
+    <style name="FullScreen" parent="MajesticWhiteTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="CustomActionBarTheme" parent="MajesticWhiteTheme">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="Widget.MajesticWhite.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="tint">?attr/colorOnSecondary</item>
+    </style>
+
+    <style name="Widget.MajesticWhite.RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:buttonTint">?attr/colorSecondary</item>
+    </style>
+
+    <style name="Widget.MajesticWhite.PopupMenu" parent="Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupBackground">@android:color/white</item>
+        <item name="android:textColor">?android:attr/textColor</item>
+    </style>
+</resources>
