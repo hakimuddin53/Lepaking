@@ -1,4 +1,4 @@
-package com.example.airbillscanner.view
+package com.example.airbillscanner.view.activity
 
 import android.content.Context
 import android.content.Intent
