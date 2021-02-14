@@ -5,13 +5,15 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.example.airbillscanner.model.ApplicationDatabase
+import com.example.airbillscanner.model.database.dao.AirbillScannedDao
+import com.example.airbillscanner.model.database.dao.CourierDao
 import com.example.airbillscanner.model.database.dao.LoginDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 /**
- * Created by cytan on 2/12/2018.
+ * Created by hakim on 2/12/2021.
  */
 @Module
 class DatabaseModule {
@@ -27,6 +29,11 @@ class DatabaseModule {
     @Singleton
     fun provideLoginDao(database: ApplicationDatabase): LoginDao = database.loginDao()
 
+    @Provides
+    @Singleton
+    fun provideCourierDao(database: ApplicationDatabase): CourierDao = database.courierDao()
 
-
+    @Provides
+    @Singleton
+    fun provideAirBillScannerDao(database: ApplicationDatabase): AirbillScannedDao = database.airbillScannedDao()
 }

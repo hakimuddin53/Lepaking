@@ -61,6 +61,7 @@ class BarcodeScanningActivity: AppCompatActivity()
     {
         disposables.add(BarcodeDetectedBus.toObservable().subscribe {
             viewModel.barcode.set(it)
+
         })
 
         viewModel.isCameraFacingFront.addOnPropertyChanged {

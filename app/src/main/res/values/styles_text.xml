@@ -69,6 +69,25 @@
         <item name="android:layout_marginTop">3dp</item>
     </style>
 
+    <style name="TextMedium">
+        <item name="android:textSize">@dimen/textsize_medium</item>
+    </style>
+
+    <style name="TextMedium.Black" parent="TextMedium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:alpha">0.87</item>
+    </style>
+
+    <style name="EditTextBarcode" parent="TextMedium.Black">
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/size_height_edittext</item>
+        <item name="android:textColorHint">@color/grey400</item>
+        <item name="android:background">@drawable/all_bg_edittext</item>
+        <item name="android:layout_marginTop">3dp</item>
+    </style>
+
     <style name="EditTextNumberWithoutMaxLength" parent="Text.Body1">
         <item name="android:padding">3dp</item>
         <item name="android:textSize">12sp</item>

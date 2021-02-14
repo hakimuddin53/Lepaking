@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -24,17 +27,75 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
 
+            <com.example.airbillscanner.common.view.DropDownMenuView
+                android:id="@+id/dropdown_courier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_all_16dp"
+                app:isRequired="true"
+                app:label="@string/label_courier" />
+
             <TextView
                 style="@style/TextTitleEditText"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_number"/>
+
+            <EditText
+                android:id="@+id/et_order_number"
+                style="@style/EditText"
+                android:hint="@string/enter_order_number"
+                android:text="@={viewModel.valueOrderNumber}"/>
+
+            <TextView
+                style="@style/TextTitleEditText"
+                android:layout_marginTop="32dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/barcode"/>
 
-            <EditText
-                android:id="@+id/et_barcode"
-                style="@style/EditText"
-                android:hint="@string/enter_barcode"
-                android:text="@={viewModel.valueBarcode}"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <EditText
+                    android:id="@+id/et_barcode"
+                    android:hint="@string/enter_barcode"
+                    android:text="@={viewModel.valueBarcode}"
+                    android:layout_weight="3.5"
+                    android:layout_marginEnd="@dimen/margin_all_8dp"
+                    style="@style/EditTextBarcode"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_reset1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/size_height_edittext"
+                    android:layout_marginEnd="@dimen/margin_all_8dp"
+                    android:layout_weight="1.5"
+                    android:onClick="@{viewModel::onBarcodeButtonClick}"
+                    android:text="@string/label_Scan" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@={viewModel.lastConsignmentScanned}" />
+
+
+            <!--            <EditText-->
+<!--                android:id="@+id/et_barcode"-->
+<!--                style="@style/EditText"-->
+<!--                android:hint="@string/enter_barcode"-->
+<!--                android:text="@={viewModel.valueBarcode}"/>-->
+
         </LinearLayout>
 
     </LinearLayout>

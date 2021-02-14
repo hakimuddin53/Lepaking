@@ -11,10 +11,19 @@
     <string name="login_failed">"Login failed"</string>
     <string name="hint_barcode" translatable="false">Barcode</string>
     <string name="error_barcode_invalid" translatable="false">Please enter valid barcode</string>
-    <string name="all_confirm" translatable="false">Confirm</string>.
+    <string name="all_confirm" translatable="false">Confirm</string>
+    <string name="label_Scan" translatable="false">Scan</string>
+
+
+    <string name="warning_permission_required" translatable="false">Application require STORAGE, CAMERA and other permissions to function properly</string>
 
     <string name="barcode" translatable="false">Barcode</string>
     <string name="enter_barcode" translatable="false">Enter Barcode</string>
+
+    <string name="order_number" translatable="false">Order Number</string>
+    <string name="enter_order_number" translatable="false">Enter Order Number</string>
+
+    <string name="label_courier" translatable="false">Courier</string>
 
 
 

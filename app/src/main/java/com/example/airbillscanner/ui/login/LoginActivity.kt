@@ -165,14 +165,14 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun updateUiWithUser(model: LoggedInUserView) {
-        val welcome = getString(R.string.welcome)
-        val displayName = model.displayName
-        // TODO : initiate successful logged in experience
-        Toast.makeText(
-            applicationContext,
-            "$welcome $displayName",
-            Toast.LENGTH_LONG
-        ).show()
+//        val welcome = getString(R.string.welcome)
+//        val displayName = model.displayName
+//        // TODO : initiate successful logged in experience
+//        Toast.makeText(
+//            applicationContext,
+//            "$welcome $displayName",
+//            Toast.LENGTH_LONG
+//        ).show()
 
         val intent = Intent(applicationContext, AirBillActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
