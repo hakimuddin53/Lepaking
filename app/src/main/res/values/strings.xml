@@ -14,8 +14,8 @@
     <string name="all_confirm" translatable="false">Confirm</string>
     <string name="label_Scan" translatable="false">Scan</string>
 
-
     <string name="warning_permission_required" translatable="false">Application require STORAGE, CAMERA and other permissions to function properly</string>
+    <string name="upload_google_drive" translatable="false">Upload to Google Drive</string>
 
     <string name="barcode" translatable="false">Barcode</string>
     <string name="enter_barcode" translatable="false">Enter Barcode</string>

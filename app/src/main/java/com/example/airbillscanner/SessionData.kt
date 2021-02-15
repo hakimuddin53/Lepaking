@@ -5,9 +5,7 @@ import javax.inject.Inject
 
 class SessionData @Inject constructor(private val preferences: SharedPreferences) {
 
-//    var isLoggedOn: Boolean
-//        get() = preferences.getBoolean(Constants.PREF_KEY_USER_LOGGED_ON, false)
-//        set(value) = preferences.edit().putBoolean(Constants.PREF_KEY_USER_LOGGED_ON, value).apply()
-
-
+    var username: String
+        get() = preferences.getString(Constants.PREF_KEY_USERNAME, "") ?: ""
+        set(value) = preferences.edit().putString(Constants.PREF_KEY_USERNAME, value).apply()
 }

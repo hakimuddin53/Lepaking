@@ -22,7 +22,7 @@ class AirBillViewModel : ViewModel() {
     val valueOrderNumber: ObservableField<String> = ObservableField()
     val couriers: LiveData<List<CourierEntity>>
     val barcodeChangesClicked = ObservableField<Any>()
-
+    val uploadGoogleDrivesClicked = ObservableField<Any>()
 
     var selectedCourierId = MutableLiveData(0)
 
@@ -80,6 +80,13 @@ class AirBillViewModel : ViewModel() {
     fun onBarcodeButtonClick(view: View) {
         view.onSingleClick {
             barcodeChangesClicked.notifyChange()
+        }
+    }
+
+    @ExperimentalCoroutinesApi
+    fun onUploadGoogleDriveClick(view: View) {
+        view.onSingleClick {
+            uploadGoogleDrivesClicked.notifyChange()
         }
     }
 

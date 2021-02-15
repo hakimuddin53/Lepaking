@@ -16,8 +16,12 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.airbillscanner.AirbillScannerApplication
 import com.example.airbillscanner.R
+import com.example.airbillscanner.SessionData
 import com.example.airbillscanner.common.helper.IntentHelper
+import com.example.airbillscanner.common.provider.DriveServiceHelper
+import com.example.airbillscanner.common.provider.DriveServiceHelper.getGoogleDriveService
 import com.example.airbillscanner.view.activity.AirBillActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -30,12 +34,20 @@ import com.google.api.services.drive.Drive
 import com.google.api.services.drive.DriveScopes
 import timber.log.Timber
 import java.util.*
+import javax.inject.Inject
 
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
-    private var mGoogleSignInClient: GoogleSignInClient? = null
+
+
+    @Inject
+    lateinit var sessionData : SessionData
+
+    init {
+        AirbillScannerApplication.dataComponent.inject(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
                 showLoginFailed(loginResult.error)
             }
             if (loginResult.success != null) {
+
                 updateUiWithUser(loginResult.success)
             }
             setResult(Activity.RESULT_OK)
@@ -112,67 +125,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-//        signInGoogle()
     }
-
-    private fun buildGoogleSignInClient(): GoogleSignInClient? {
-        val signInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestScopes(Scope(DriveScopes.DRIVE_FILE))
-            .build()
-        return GoogleSignIn.getClient(applicationContext, signInOptions)
-    }
-
-    private fun signIn() {
-        mGoogleSignInClient = buildGoogleSignInClient()
-        startActivityForResult(
-            mGoogleSignInClient?.signInIntent,
-            100
-        )
-    }
-
-    private fun signInGoogle()
-    {
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-
-        if (account == null) {
-            signIn()
-        } else {
-            val credential = GoogleAccountCredential.usingOAuth2(
-                applicationContext, Collections.singleton(DriveScopes.DRIVE_FILE)
-            )
-            credential.selectedAccount = account.account
-            val googleDriveService = Drive.Builder(
-                AndroidHttp.newCompatibleTransport(),
-                GsonFactory(),
-                credential
-            )
-                .setApplicationName("AppName")
-                .build()
-//            mDriveServiceHelper = DriveServiceHelper(googleDriveService)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        when (requestCode) {
-           100-> if (resultCode == RESULT_OK && resultData != null) {
-//                handleSignInResult(resultData)
-               Timber.d("yesy")
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, resultData)
-    }
-
-
 
     private fun updateUiWithUser(model: LoggedInUserView) {
-//        val welcome = getString(R.string.welcome)
-//        val displayName = model.displayName
-//        // TODO : initiate successful logged in experience
-//        Toast.makeText(
-//            applicationContext,
-//            "$welcome $displayName",
-//            Toast.LENGTH_LONG
-//        ).show()
+        sessionData.username = model.displayName
 
         val intent = Intent(applicationContext, AirBillActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

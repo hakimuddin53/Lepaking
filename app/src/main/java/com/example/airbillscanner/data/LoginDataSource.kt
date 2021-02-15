@@ -2,6 +2,7 @@ package com.example.airbillscanner.data
 
 import com.example.airbillscanner.data.model.LoggedInUser
 import java.io.IOException
+import java.lang.Exception
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
@@ -9,12 +10,15 @@ import java.io.IOException
 class LoginDataSource {
 
     fun login(username: String, password: String): Result<LoggedInUser> {
-        try {
-            // TODO: handle loggedInUser authentication
-            val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
-            return Result.Success(fakeUser)
+        return try {
+
+            if(username.trim() == "test" && password.trim() == "password")
+                Result.Success(LoggedInUser(java.util.UUID.randomUUID().toString(), "test"))
+            else
+                Result.Error(Exception("Error logging in"))
+
         } catch (e: Throwable) {
-            return Result.Error(IOException("Error logging in", e))
+            Result.Error(IOException("Error logging in", e))
         }
     }
 

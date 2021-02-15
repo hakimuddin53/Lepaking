@@ -24,7 +24,7 @@ class DateUtility {
 
         fun current(): LocalDateTime = LocalDateTime.now()
 
-        fun now() = LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateTimeDatabasePattern))
+        fun now() = LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateDatabasePattern))
         fun now(pattern: String) = LocalDateTime.now().format(DateTimeFormatter.ofPattern(pattern))
         fun parseDatabaseDateTime(date: String) = LocalDateTime.parse(date, DateTimeFormatter.ofPattern(DateTimeDatabasePattern))
         fun parseDatabaseDate(date: String) = LocalDate.parse(date, DateTimeFormatter.ofPattern(DateDatabasePattern))
