@@ -191,14 +191,24 @@ class AirBillFragment : Fragment() {
             if (resultCode == Activity.RESULT_OK) {
                 viewModel.valueBarcode.set(data?.getStringExtra(BarcodeScanningActivity.BARCODE_KEY))
 
-                if (viewModel.areRequiredFieldsFilled()) {
-                    viewModel.insertScannedBarcode()
-                    viewModel.lastConsignmentScanned.set("Last Scanned : " + viewModel.valueBarcode.getNonNull())
-                    clearConsignment()
+                val checkAirBillScannedExist = airbillScannedDao.checkAirBillScannedExist(viewModel.valueBarcode.getNonNull())
+
+                if (checkAirBillScannedExist == null) {
+                    if (viewModel.areRequiredFieldsFilled()) {
+                        viewModel.insertScannedBarcode()
+                        viewModel.lastConsignmentScanned.set("Last Scanned : " + viewModel.valueBarcode.getNonNull())
+                        clearConsignment()
+                    } else {
+                        Snackbar.make(
+                            binding.root,
+                            "Please fill up all mandatory fields.",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
                 } else {
                     Snackbar.make(
                         binding.root,
-                        "Please fill up all mandatory fields.",
+                        "This airbill number already exist. Please edit the number and try again",
                         Snackbar.LENGTH_SHORT
                     ).show()
                 }

@@ -11,7 +11,7 @@ import java.util.*
 class DateUtility {
 
     companion object {
-        const val DateTimeDatabasePattern = "yyyy-MM-dd HH:mm:ss.SSS"
+        const val DateTimeDatabasePattern = "yyyy-MM-dd HH:mm:ss"
         const val DateDatabasePattern = "yyyy-MM-dd"
         const val TimeDatabasePattern = "HH:mm:ss.SSS"
         const val DatabaseBackupDisplayPattern = "yyyyMMdd_HHmmss"
@@ -25,6 +25,7 @@ class DateUtility {
         fun current(): LocalDateTime = LocalDateTime.now()
 
         fun now() = LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateDatabasePattern))
+        fun nowDateTime() = LocalDateTime.now().format(DateTimeFormatter.ofPattern(DateTimeDatabasePattern))
         fun now(pattern: String) = LocalDateTime.now().format(DateTimeFormatter.ofPattern(pattern))
         fun parseDatabaseDateTime(date: String) = LocalDateTime.parse(date, DateTimeFormatter.ofPattern(DateTimeDatabasePattern))
         fun parseDatabaseDate(date: String) = LocalDate.parse(date, DateTimeFormatter.ofPattern(DateDatabasePattern))

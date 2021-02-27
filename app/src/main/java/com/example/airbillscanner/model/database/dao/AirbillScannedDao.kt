@@ -13,7 +13,7 @@ import com.example.airbillscanner.model.ui.AirbillScannedModel
 @Dao
 abstract class AirbillScannedDao {
 
-    @Query("SELECT A.barcode,A.orderNumber,C.description,A.createdDate   FROM AirbillScanned A JOIN Courier C ON A.courierId = C.Id where  strftime('%Y-%m-%d', A.createdDate) = :date  ")
+    @Query("SELECT A.barcode,A.orderNumber,C.description,A.createdDate   FROM AirbillScanned A JOIN Courier C ON A.courierId = C.Id where  strftime('%Y-%m-%d', A.createdDate) = :date order by A.createdDate,C.description  ")
     abstract fun loadAirBillScanned(date : String): List<AirbillScannedModel>
 
 
@@ -22,5 +22,8 @@ abstract class AirbillScannedDao {
 
     @Insert
     abstract fun insertAirBillScanned(entity: AirbillScannedEntity)
+
+    @Query("SELECT * FROM AirbillScanned  WHERE  barcode = :barcode LIMIT 1")
+    abstract fun checkAirBillScannedExist(barcode : String): AirbillScannedEntity?
 
 }

@@ -10,9 +10,9 @@ abstract class BaseEntity
 {
     var isActive: Boolean = true
     var isDeleted: Boolean = false
-    var createdDate: String = DateUtility.now()
+    var createdDate: String = DateUtility.nowDateTime()
     var createdBy: String = ""
-    var updatedDate: String = DateUtility.now()
+    var updatedDate: String = DateUtility.nowDateTime()
     var updatedBy: String = ""
     var remarks: String = ""
 
