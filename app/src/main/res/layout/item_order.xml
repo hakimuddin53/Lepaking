@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.lepaking.viewmodel.ItemOrderViewModel"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewStockTake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:contentPadding="10dp"
+        app:cardCornerRadius="2dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="3dp"
+        android:layout_margin="@dimen/margin_all_4dp"
+        android:onClick="@{viewModel::onItemOrderClick}">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_module"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="16dp"
+                android:text="@{viewModel.code}"
+                android:textSize="@dimen/textsize_medium"/>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@{viewModel.timeReceived}"
+                android:textSize="@dimen/textsize_medium"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

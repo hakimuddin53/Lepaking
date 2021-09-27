@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AirbillScanner</string>
+    <string name="app_name">Lepaking</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -13,6 +13,9 @@
     <string name="error_barcode_invalid" translatable="false">Please enter valid barcode</string>
     <string name="all_confirm" translatable="false">Confirm</string>
     <string name="label_Scan" translatable="false">Scan</string>
+    <string name="label_New" translatable="false">New</string>
+    <string name="label_Complete" translatable="false">Complete</string>
+    <string name="label_Setting" translatable="false">Setting</string>
 
     <string name="warning_permission_required" translatable="false">Application require STORAGE, CAMERA and other permissions to function properly</string>
     <string name="upload_google_drive" translatable="false">Upload to Google Drive</string>
@@ -20,8 +23,12 @@
     <string name="barcode" translatable="false">Barcode</string>
     <string name="enter_barcode" translatable="false">Enter Barcode</string>
 
-    <string name="order_number" translatable="false">Order Number</string>
-    <string name="enter_order_number" translatable="false">Enter Order Number</string>
+    <string name="name" translatable="false">Name</string>
+    <string name="telephone" translatable="false">Telephone</string>
+    <string name="order_type" translatable="false">Order Type</string>
+    <string name="pickup_time" translatable="false">Pickup Time</string>
+    <string name="total_price" translatable="false">Total Price</string>
+    <string name="enter_customer_name" translatable="false">Customer Name</string>
 
     <string name="label_courier" translatable="false">Courier</string>
 

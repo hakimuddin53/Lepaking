@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:695178827609:android:30b4c9852b9077744dde48",
         "android_client_info": {
-          "package_name": "com.example.airbillscanner"
+          "package_name": "com.example.lepaking"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "695178827609-d25l37i4o29utbmhltor4fao05d26ncm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.airbillscanner",
+            "package_name": "com.example.lepaking",
             "certificate_hash": "46d7a27aee24c430847d25044fe2253a9d632b19"
           }
         },
