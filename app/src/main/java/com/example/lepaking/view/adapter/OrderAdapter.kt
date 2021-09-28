@@ -7,12 +7,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lepaking.R
 import com.example.lepaking.databinding.ItemOrderBinding
+import com.example.lepaking.model.database.entity.OrderEntity
 import com.example.lepaking.model.ui.OrderDetailModel
 import com.example.lepaking.viewmodel.ItemOrderViewModel
 
 
 class OrderAdapter: RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
-    private var list = mutableListOf<OrderDetailModel>()
+    private var list = mutableListOf<OrderEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
     {
@@ -24,8 +25,8 @@ class OrderAdapter: RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int)
     {
-        val orderDetail = list[position]
-        holder.bindView(orderDetail)
+        val order = list[position]
+        holder.bindView(order)
     }
 
     override fun getItemCount(): Int
@@ -35,13 +36,13 @@ class OrderAdapter: RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
 
     class ViewHolder(internal var binding: ItemOrderBinding) : RecyclerView.ViewHolder(binding.root)
     {
-        internal fun bindView(data: OrderDetailModel)
+        internal fun bindView(data: OrderEntity)
         {
             binding.viewModel = ItemOrderViewModel(data)
         }
     }
 
-    fun setDataList(list: List<OrderDetailModel>)
+    fun setDataList(list: List<OrderEntity>)
     {
         this.list.clear()
         this.list.addAll(list)

@@ -6,13 +6,14 @@ import com.example.lepaking.model.database.dao.OrderDetailDao
 import com.example.lepaking.model.database.dao.LoginDao
 import com.example.lepaking.model.database.entity.LoginEntity
 import com.example.lepaking.model.database.entity.OrderDetailEntity
+import com.example.lepaking.model.database.entity.OrderEntity
 
 /**
  * Created by cytan on 2/12/2018.
  */
 
 @Database(version = ApplicationDatabase.VERSION,
-    entities = [LoginEntity::class,OrderDetailEntity::class],
+    entities = [LoginEntity::class,OrderDetailEntity::class,OrderEntity :: class],
     exportSchema = false)
 
 

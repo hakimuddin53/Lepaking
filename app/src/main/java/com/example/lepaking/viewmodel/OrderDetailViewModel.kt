@@ -3,11 +3,8 @@ package com.example.lepaking.viewmodel
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lepaking.LepakingApplication
-import com.example.lepaking.common.eventbus.OrderItemClickBus
-import com.example.lepaking.common.extension.getNonNull
 import com.example.lepaking.common.extension.onSingleClick
 import com.example.lepaking.model.database.dao.OrderDetailDao
 import com.example.lepaking.model.database.entity.OrderDetailEntity
@@ -15,7 +12,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 import javax.inject.Inject
 
-class OrderDetailViewModel(private val code: String? = null) : ViewModel() {
+class OrderDetailViewModel(private val orderID: String? = null) : ViewModel() {
 
     val valueCustomerName: ObservableField<String> = ObservableField()
     val valueTelephone: ObservableField<String> = ObservableField()
@@ -25,7 +22,6 @@ class OrderDetailViewModel(private val code: String? = null) : ViewModel() {
 
     lateinit var orderDetailLiveData : LiveData<List<OrderDetailEntity>>
 
-
     @Inject lateinit var orderDetailDao: OrderDetailDao
 
     init {
@@ -34,21 +30,21 @@ class OrderDetailViewModel(private val code: String? = null) : ViewModel() {
     }
 
     private fun loadOrderDetails(){
-        orderDetailLiveData = orderDetailDao.loadDishDetail(code)
+        orderDetailLiveData = orderDetailDao.loadOrderDetail(orderID)
 
-        val orderDetail = orderDetailDao.loadOrderDetail(code)
+        val order = orderDetailDao.loadOrder(orderID)
 
-        valueCustomerName.set(orderDetail.name)
-        valueTelephone.set(orderDetail.telephoneNumber)
-        valueOrderType.set(orderDetail.orderType)
-        valuePickupTime.set(orderDetail.pickupTime)
-        valueTotalPrice.set(orderDetail.totalPrice)
+        valueCustomerName.set(order.name)
+        valueTelephone.set(order.telephoneNumber)
+        valueOrderType.set(order.orderType)
+        valuePickupTime.set(order.pickupTime)
+        valueTotalPrice.set(order.totalPrice)
     }
 
     @ExperimentalCoroutinesApi
     fun onPrepareNowClick(view: View) {
         view.onSingleClick {
-           // OrderItemClickBus.send(orderDetail.code,orderDetail.timeReceived)
+            orderDetailDao.updatePrepareNowFlag(orderID)
         }
     }
 }

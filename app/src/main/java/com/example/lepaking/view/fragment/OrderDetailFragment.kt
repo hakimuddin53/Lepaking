@@ -8,17 +8,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lepaking.Constants
 import com.example.lepaking.LepakingApplication
 import com.example.lepaking.R
 import com.example.lepaking.SessionData
-import com.example.lepaking.common.extension.addOnPropertyChanged
 import com.example.lepaking.common.extension.getViewModelNew
 import com.example.lepaking.databinding.FragmentOrderDetailBinding
 import com.example.lepaking.model.database.dao.OrderDetailDao
-import com.example.lepaking.view.adapter.OrderAdapter
 import com.example.lepaking.view.adapter.OrderDetailAdapter
 import com.example.lepaking.viewmodel.OrderDetailViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -32,7 +29,7 @@ class OrderDetailFragment : Fragment() {
     private val disposables = CompositeDisposable()
 
     private val viewModel : OrderDetailViewModel by lazy {
-        getViewModelNew { OrderDetailViewModel(arguments?.getString(Constants.CODE)) }
+        getViewModelNew { OrderDetailViewModel(arguments?.getString(Constants.ORDER_ID)) }
     }
 
     @Inject
@@ -45,9 +42,9 @@ class OrderDetailFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(code: String? = null) = OrderDetailFragment().apply {
+        fun newInstance(orderID: String? = null) = OrderDetailFragment().apply {
             this.arguments = Bundle().apply {
-                code?.let { putString(Constants.CODE, it) }
+                orderID?.let { putString(Constants.ORDER_ID, it) }
             }
         }
     }

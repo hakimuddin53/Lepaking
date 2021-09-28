@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "695178827609",
-    "project_id": "airbillscanner",
-    "storage_bucket": "airbillscanner.appspot.com"
+    "project_number": "212984076796",
+    "project_id": "lepaking-ee186",
+    "storage_bucket": "lepaking-ee186.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:695178827609:android:30b4c9852b9077744dde48",
+        "mobilesdk_app_id": "1:212984076796:android:4428e15bf46b3a89567a79",
         "android_client_info": {
           "package_name": "com.example.lepaking"
         }
       },
       "oauth_client": [
         {
-          "client_id": "695178827609-d25l37i4o29utbmhltor4fao05d26ncm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.lepaking",
-            "certificate_hash": "46d7a27aee24c430847d25044fe2253a9d632b19"
-          }
-        },
-        {
-          "client_id": "695178827609-90m1ovm5hdmm8fpvvtokobuab2hecv0m.apps.googleusercontent.com",
+          "client_id": "212984076796-f9mrohaa4tmcqmu54hnto4ff2tv2qnra.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARDnFNadqMmLuYKxDNrpVeaw9O5y88oFQ"
+          "current_key": "AIzaSyBzOEY2Fe-t5P5S1EX6Z7qTbcn6ma-s6ZY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "695178827609-90m1ovm5hdmm8fpvvtokobuab2hecv0m.apps.googleusercontent.com",
+              "client_id": "212984076796-f9mrohaa4tmcqmu54hnto4ff2tv2qnra.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

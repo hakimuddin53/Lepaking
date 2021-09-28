@@ -19,6 +19,7 @@ import com.example.lepaking.model.database.dao.OrderDetailDao
 import com.example.lepaking.view.activity.MainActivity
 import com.example.lepaking.view.adapter.OrderAdapter
 import com.example.lepaking.viewmodel.OrderViewModel
+import com.google.android.material.badge.BadgeDrawable
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -48,6 +49,7 @@ class OrderFragment : Fragment() {
             binding = DataBindingUtil.inflate(inflater, R.layout.fragment_order, container, false)
             binding.viewModel = viewModel
 
+
             adapter = OrderAdapter()
 
             subscribeToModel()
@@ -59,6 +61,8 @@ class OrderFragment : Fragment() {
         }
     }
 
+
+
     private fun initializeRecyclerView(){
         val recyclerView = binding.recyclerItemOrder
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -67,15 +71,20 @@ class OrderFragment : Fragment() {
 
 
     private fun subscribeToModel() {
-        viewModel.distinctOrderDetailLiveData.observe(viewLifecycleOwner, Observer { orderDetails ->
+        viewModel.orderLiveData.observe(viewLifecycleOwner, { orderDetails ->
             if(orderDetails != null) {
+
+                val count = viewModel.getPendingOrderCount()
+                binding.bottomNavigation.getOrCreateBadge(R.id.navigation_home).isVisible = count > 0
+                binding.bottomNavigation.getOrCreateBadge(R.id.navigation_home).number = count
+
                 adapter.setDataList(orderDetails)
                 adapter.notifyDataSetChanged()
             }
         })
 
         disposables.add(OrderItemClickBus.toObservable().subscribe {
-            navigateToOrderDetailFragment(OrderDetailFragment.newInstance(it.code))
+            navigateToOrderDetailFragment(OrderDetailFragment.newInstance(it.orderID))
         })
     }
 

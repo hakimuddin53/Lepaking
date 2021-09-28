@@ -10,7 +10,7 @@
 
 
     <style name="ButtonStyle.grey">
-        <item name="android:background">@color/grey400</item>
+        <item name="android:backgroundTint">@color/light_blue</item>
     </style>
 
 </resources>

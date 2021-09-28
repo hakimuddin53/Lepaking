@@ -6,6 +6,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/wonder_balloons"/>
+            android:src="@drawable/lepaking"/>
     </item>
 </layer-list>

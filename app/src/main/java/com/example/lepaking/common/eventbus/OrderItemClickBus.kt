@@ -7,8 +7,8 @@ object OrderItemClickBus {
 
     private val bus = PublishSubject.create<OrderItemClick>()
 
-    fun send(code:String, timeReceived:String){
-        bus.onNext(OrderItemClick(code,timeReceived))
+    fun send(orderID:String){
+        bus.onNext(OrderItemClick(orderID))
     }
 
     fun toObservable(): Observable<OrderItemClick> {
@@ -19,5 +19,5 @@ object OrderItemClickBus {
         return bus.hasObservers()
     }
 
-    data class OrderItemClick(val code: String, val timeReceived: String)
+    data class OrderItemClick(val orderID: String)
 }

@@ -9,16 +9,9 @@ import com.example.lepaking.common.utility.NumberUtility
 @Entity(tableName = "OrderDetail")
 class OrderDetailEntity: BaseEntity()
 {
-
     @PrimaryKey
     var orderDetailId: String = NumberUtility.getUUID()
-    var code: String = ""
-    var timeReceived: String = ""
-    var name: String = ""
-    var telephoneNumber: String = ""
-    var orderType: String = ""
-    var pickupTime: String = ""
-    var totalPrice: String = ""
+    var orderId: String = ""
     var dishName: String = ""
     var dishQuantity: Int = 0
     var dishPrice: String = ""

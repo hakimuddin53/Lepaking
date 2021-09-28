@@ -4,7 +4,9 @@ package com.example.lepaking.injection.component
 import com.example.lepaking.injection.module.ApplicationModule
 import com.example.lepaking.injection.module.DatabaseModule
 import com.example.lepaking.injection.module.NetworkModule
+import com.example.lepaking.service.FirebaseCloudMessagingService
 import com.example.lepaking.ui.login.LoginActivity
+import com.example.lepaking.view.activity.MainActivity
 import com.example.lepaking.view.fragment.OrderDetailFragment
 import com.example.lepaking.view.fragment.OrderFragment
 import com.example.lepaking.viewmodel.ItemOrderDetailViewModel
@@ -32,6 +34,11 @@ interface ApplicationComponent {
     fun inject(loginActivity: LoginActivity)
     fun inject(orderDetailFragment: OrderDetailFragment)
     fun inject(orderFragment: OrderFragment)
+    fun inject(firebaseCloudMessagingService: FirebaseCloudMessagingService)
+    fun inject(mainActivity: MainActivity)
+
+
+
 }
 
 
