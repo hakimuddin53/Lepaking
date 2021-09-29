@@ -12,24 +12,32 @@
             name="viewModel"
             type="com.example.lepaking.viewmodel.OrderViewModel"/>
     </data>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_28sp"
+            android:text="@{viewModel.title}"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_item_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textTitle"
             tools:listitem="@layout/item_order"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentBottom="true"
-            app:menu="@menu/navigation" />
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_navigation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            app:menu="@menu/navigation" />-->
 
     </RelativeLayout>
 </layout>

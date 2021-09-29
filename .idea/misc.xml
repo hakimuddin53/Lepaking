@@ -18,15 +18,19 @@
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/activity_airbill.xml" value="0.19739583333333333" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/activity_barcode_scanning.xml" value="0.1" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/activity_login.xml" value="0.19739583333333333" />
-        <entry key="..\:/Android/Lepaking/app/src/main/res/layout/activity_main.xml" value="0.148046875" />
+        <entry key="..\:/Android/Lepaking/app/src/main/res/layout/activity_main.xml" value="0.11737089201877934" />
+        <entry key="..\:/Android/Lepaking/app/src/main/res/layout/activity_order_detail.xml" value="0.1" />
+        <entry key="..\:/Android/Lepaking/app/src/main/res/layout/dialog_fragment_about.xml" value="0.18" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/fragment_airbill.xml" value="0.22" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/fragment_order.xml" value="0.24795081967213115" />
-        <entry key="..\:/Android/Lepaking/app/src/main/res/layout/fragment_order_detail.xml" value="0.15" />
+        <entry key="..\:/Android/Lepaking/app/src/main/res/layout/fragment_order_detail.xml" value="0.1" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/item_dropdown_menu_popup.xml" value="0.19739583333333333" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/item_order.xml" value="0.33" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/item_order_detail.xml" value="0.19739583333333333" />
+        <entry key="..\:/Android/Lepaking/app/src/main/res/layout/view_dropdown_menu.xml" value="0.1" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/layout/view_edit_text.xml" value="0.24795081967213115" />
         <entry key="..\:/Android/Lepaking/app/src/main/res/menu/navigation.xml" value="0.3546875" />
+        <entry key="..\:/Android/Lepaking/app/src/main/res/xml/app_settings.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -35,5 +39,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.24795081967213115" />
+      </ProjectState>
+    </option>
   </component>
 </project>

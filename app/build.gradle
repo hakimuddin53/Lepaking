@@ -58,6 +58,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.preference:preference-ktx:1.1.1'
     ext.androidx_room_version = '2.3.0'
     ext.androidx_lifecycle_version = '2.2.0'
     ext.retrofit_version = '2.6.0'

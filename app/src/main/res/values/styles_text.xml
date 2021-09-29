@@ -69,8 +69,25 @@
         <item name="android:layout_marginTop">3dp</item>
     </style>
 
+    <style name="TextValue">
+        <item name="android:textSize">14sp</item>
+        <item name="android:alpha">0.87</item>
+    </style>
+
+
+    <style name="TextFooter">
+        <item name="android:textSize">12sp</item>
+        <item name="android:alpha">0.87</item>
+    </style>
+
     <style name="TextMedium">
         <item name="android:textSize">@dimen/textsize_medium</item>
+    </style>
+
+    <style name="TextSubTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:alpha">0.87</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="TextMedium.Black" parent="TextMedium">

@@ -18,8 +18,11 @@ abstract class OrderDetailDao {
     @Query("SELECT * FROM Orders where orderId = :orderId")
     abstract fun loadOrder(orderId : String?): OrderEntity
 
-    @Query("SELECT * FROM Orders order by timeReceived ")
+    @Query("SELECT * FROM Orders where isPrepared = 0 order by timeReceived ")
     abstract fun loadOrders(): LiveData<List<OrderEntity>>
+
+    @Query("SELECT * FROM Orders where isPrepared = 1 order by timeReceived ")
+    abstract fun loadCompleteOrders(): LiveData<List<OrderEntity>>
 
     @Query("DELETE FROM OrderDetail")
     abstract fun deleteAllOrderDetails()

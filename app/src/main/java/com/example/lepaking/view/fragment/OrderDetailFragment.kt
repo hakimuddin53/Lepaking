@@ -42,9 +42,10 @@ class OrderDetailFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(orderID: String? = null) = OrderDetailFragment().apply {
+        fun newInstance(orderID: String? = null, fragmentType: String? = null) = OrderDetailFragment().apply {
             this.arguments = Bundle().apply {
                 orderID?.let { putString(Constants.ORDER_ID, it) }
+                fragmentType?.let { putString(Constants.FRAGMENT_TYPE, it) }
             }
         }
     }
@@ -77,6 +78,10 @@ class OrderDetailFragment : Fragment() {
     }
 
     private fun subscribeToModel() {
+        if(arguments?.getString(Constants.FRAGMENT_TYPE) == Constants.NEW_ORDER)
+             binding.layoutPrepareButton.visibility = View.VISIBLE;
+        else
+            binding.layoutPrepareButton.visibility = View.GONE;
 
         viewModel.orderDetailLiveData.observe(viewLifecycleOwner, Observer { orderDetails ->
             if(orderDetails != null) {

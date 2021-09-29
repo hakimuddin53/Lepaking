@@ -37,6 +37,7 @@
     <color name="majesticWhiteBackground">#1A6D80FF</color>
 
     <color name="blue_grey_200">#B0BEC5</color>
+    <color name="indigoAccent700">#304FFE</color>
 
     <color name="colorCardBackground">#F0F0F8</color>
 </resources>

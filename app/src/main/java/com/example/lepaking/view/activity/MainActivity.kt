@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.example.lepaking.Constants
 import com.example.lepaking.LepakingApplication
 import com.example.lepaking.R
 import com.example.lepaking.SessionData
 import com.example.lepaking.databinding.ActivityMainBinding
+import com.example.lepaking.model.database.dao.OrderDetailDao
+import com.example.lepaking.view.fragment.AboutDialogFragment
 import com.example.lepaking.view.fragment.OrderFragment
 import com.example.lepaking.workmanager.WorkManagerScheduler
 import com.google.android.gms.tasks.OnCompleteListener
@@ -22,8 +25,20 @@ class MainActivity : AppCompatActivity(){
     lateinit var sessionData: SessionData
     private lateinit var binding: ActivityMainBinding
 
+    @Inject
+    lateinit var orderDetailDao: OrderDetailDao
+
     init {
         LepakingApplication.dataComponent.inject(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val count = orderDetailDao.getPendingOrderCount()
+        binding.bottomNavigation.getOrCreateBadge(R.id.navigation_home).isVisible = count > 0
+        binding.bottomNavigation.getOrCreateBadge(R.id.navigation_home).number = count
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?){
@@ -55,21 +70,19 @@ class MainActivity : AppCompatActivity(){
 
     private fun initializeBottomNavigation(){
 
-        binding.bottomNavigation.selectedItemId = R.id.navigation_home
-
+        supportFragmentManager.beginTransaction().replace(R.id.content, OrderFragment.newInstance(Constants.NEW_ORDER)).commit()
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.content, OrderFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.content, OrderFragment.newInstance(Constants.NEW_ORDER)).commit()
                     return@setOnItemSelectedListener true
                 }
                 R.id.navigation_complete -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.content, OrderFragment()).commit()
-                    // Respond to navigation item 2 click
+                    supportFragmentManager.beginTransaction().replace(R.id.content, OrderFragment.newInstance(Constants.COMPLETE_ORDER)).commit()
                     return@setOnItemSelectedListener true
                 }
                 R.id.navigation_settings -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.content, OrderFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.content, AboutDialogFragment()).commit()
                     // Respond to navigation item 2 click
                     return@setOnItemSelectedListener true
                 }

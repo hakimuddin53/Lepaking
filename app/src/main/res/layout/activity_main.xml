@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.resmal.smartstocktake.view.activity.PriceCheckActivity">
+        tools:context="com.example.lepaking.view.activity.MainActivity">
 
         <FrameLayout
             android:id="@+id/content"
