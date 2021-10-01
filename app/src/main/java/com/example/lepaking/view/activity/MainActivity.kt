@@ -18,6 +18,12 @@ import com.example.lepaking.workmanager.WorkManagerScheduler
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import javax.inject.Inject
+import com.google.firebase.installations.InstallationTokenResult
+
+import com.google.firebase.installations.FirebaseInstallations
+
+
+
 
 class MainActivity : AppCompatActivity(){
 
@@ -45,6 +51,18 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+//        FirebaseInstallations.getInstance().getToken(false)
+//            .addOnCompleteListener(OnCompleteListener { task ->
+//                if (!task.isSuccessful) {
+//                    return@OnCompleteListener
+//                }
+//                // Get new Instance ID token
+//                sessionData.firebaseInstanceId = task.result?.token.toString()
+//
+//            })
+
+
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w("ss", "Fetching FCM registration token failed", task.exception)
@@ -55,6 +73,8 @@ class MainActivity : AppCompatActivity(){
             sessionData.firebaseInstanceId = task.result!!
 
         })
+
+        val a = sessionData.firebaseInstanceId
 
         initializeBottomNavigation()
 

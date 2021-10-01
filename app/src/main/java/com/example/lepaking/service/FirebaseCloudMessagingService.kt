@@ -2,14 +2,23 @@ package com.example.lepaking.service
 
 import com.example.lepaking.LepakingApplication
 import com.example.lepaking.SessionData
+import com.example.lepaking.common.utility.NumberUtility
+import com.example.lepaking.model.database.dao.OrderDetailDao
+import com.example.lepaking.model.database.entity.OrderDetailEntity
+import com.example.lepaking.model.database.entity.OrderEntity
+import com.example.lepaking.network.model.CustomerOrderModel
+import com.example.lepaking.network.model.FoodOrderModel
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import timber.log.Timber
 import javax.inject.Inject
 
 class FirebaseCloudMessagingService: FirebaseMessagingService()
 {
     @Inject lateinit var sessionData: SessionData
+    @Inject lateinit var orderDetailDao: OrderDetailDao
 
     init {
         LepakingApplication.dataComponent.inject(this)
@@ -17,41 +26,39 @@ class FirebaseCloudMessagingService: FirebaseMessagingService()
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Timber.i("FCM message received!!")
-        // check whether the fcm message is sent to a topic or a not. Sending to topic means it is for apk update, else its for van stock notification
-//        if (remoteMessage.from == "/topics/${sessionData.subscribedFCMTopic}") {
-//            if (remoteMessage.data.isNotEmpty()) {
-//                val data = Gson().fromJson<ApkUpdateDataModel>(remoteMessage.data.toString(), ApkUpdateDataModel::class.java)
-//
-//                sessionData.apkUpdateId = data.apkUpdateId
-//                sessionData.apkUpdateIsActive = data.apkUpdateIsActive
-//                sessionData.apkUpdateVersion = data.apkUpdateVersion
-//                sessionData.apkUpdateFilename = data.apkUpdateFilename
-//                Timber.i("FCM message received!!")
-//            }
-//
-//        } else {
-//            if (remoteMessage.data.isNotEmpty()) {
-//                val module = remoteMessage.data["module"]
-//                val documentId = remoteMessage.data["id"]
-//                val documentNumber = remoteMessage.data["number"]
-//                val serverDate = remoteMessage.data["date"]
-//
-//                notificationRepository.createNotification(module!!,documentId!!,documentNumber!!,serverDate!!,module)
-//
-//                /* when (module) {
-//                     "StockTransfer"-> {
-//                         notificationRepository.createNotification(module,documentId!!,documentNumber!!,serverDate!!,module)
-//                     }
-//
-//                     "StockAdjustment"-> {
-//
-//                         notificationRepository.createNotification(module,documentId!!,documentNumber!!,serverDate!!,module)
-//
-//
-//                     }
-//                 }*/
-//            }
-//        }
+
+        orderDetailDao.deleteAllOrderDetails()
+        orderDetailDao.deleteAllOrders()
+
+        if (remoteMessage.data.isNotEmpty()) {
+            val customer = Gson().fromJson<List<CustomerOrderModel>>(remoteMessage.data["customer"], object: TypeToken<List<CustomerOrderModel>>(){}.type)
+            val food = Gson().fromJson<List<FoodOrderModel>>(remoteMessage.data["food"], object: TypeToken<List<FoodOrderModel>>(){}.type)
+
+            val orderId = NumberUtility.getUUID()
+            customer.forEach { item ->
+                val order = OrderEntity()
+                order.orderId = orderId
+                order.code = item.OrderID
+                order.timeReceived = item.OrderTime
+                order.name = item.CustName
+                order.telephoneNumber = item.CustTele
+                order.orderType = item.Type
+                order.pickupTime = item.OrderTime
+                order.totalPrice = "RM " + item.TotalPrice
+                orderDetailDao.insertOrder(order)
+            }
+
+            food.forEach { foodItem ->
+                val orderDetail = OrderDetailEntity()
+                orderDetail.orderDetailId = NumberUtility.getUUID()
+                orderDetail.orderId = orderId
+                orderDetail.dishName = foodItem.foodname
+                orderDetail.dishQuantity = foodItem.quantity.toInt()
+                orderDetail.dishPrice = "RM " + foodItem.price
+                orderDetail.dishRemark =  foodItem.remark
+                orderDetailDao.insertOrderDetail(orderDetail)
+            }
+        }
     }
 
     override fun onMessageSent(p0: String) {

@@ -19,7 +19,7 @@ class OrderViewModel(private val fragmentType: String? = null)  : ViewModel() {
 
     init {
         LepakingApplication.dataComponent.inject(this)
-        //seedData()
+       // seedData()
 
         orderLiveData = if(fragmentType == Constants.NEW_ORDER)
             orderDetailDao.loadOrders()

@@ -99,6 +99,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-messaging-ktx'
 
+
     //Firebase Library
 //    implementation 'com.google.firebase:firebase-core:19.0.1'
 //    implementation 'com.google.firebase:firebase-messaging:22.0.0'
@@ -115,6 +116,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$androidx_lifecycle_version"
 
     implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    implementation 'com.sunmi:printerlibrary:1.0.13'
 
 
     //RxJava Library
